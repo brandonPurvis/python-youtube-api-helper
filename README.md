@@ -5,8 +5,10 @@ with the youtube api via google's python api client.
 
 
 ## To Use 
-    The google-api-python-client is the only requirement.
+The google-api-python-client is the only requirement.
+
+- `pip install google-api-python-client`
 
 
-    To install excute `pip install google-api-python-client`
-    
+## Example
+    TODO
