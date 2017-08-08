@@ -8,6 +8,29 @@ def create_service(service, version, key):
     return build(service, version, developerKey=key)
 
 
+def get_channel_by_id(channel_id, ytservice):
+    response = ytservice.channels().list(
+        part='snippet',
+        id=channel_id,
+    ).execute()
+    channels = response.get('items')
+    if channels:
+        channel = channels[0]
+        return ChannelSnippetResponseWrapper(channel)
+
+
+def get_channel_by_username(username, ytservice):
+    response = ytservice.search().list(
+        part='snippet',
+        q=username,
+        type='channel'
+    ).execute()
+    channels = response.get('items')
+    if channels:
+        channel = channels[0]
+        return ChannelSnippetResponseWrapper(channel)
+
+
 def subscriptions(channel_id, ytservice):
     """
     Generates the full subscription list for a channel. 
