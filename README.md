@@ -23,7 +23,7 @@ from secrets import YOUTUBE_DATA_API_KEY
 
 CHANNEL_ID = ...
 
-service = ytapi.create_service(YOUTUBE_DATA_API_KEY)
+service = ytapi.create_service('youtube', 'v3', YOUTUBE_DATA_API_KEY)
 
 for channel in ytapi.subscriptions(CHANNEL_ID, service):
     print(channel.name, channel.channel_id)
